@@ -15,7 +15,6 @@ namespace Infrastructure.TableConfigs
         {
            // builder.HasKey(u=>u.UserId);
             builder.HasOne(u => u.Address).WithOne().HasForeignKey<Teacher>(u => u.AddressId);
-
             builder.HasOne(d => d.Department).WithMany(d => d.Teachers).HasForeignKey(d => d.DepartmentId);
             builder.HasMany(s => s.Sessions).WithOne(s => s.Teacher).HasForeignKey(s=>s.TeacherId);
         }
